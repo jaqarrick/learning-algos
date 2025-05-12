@@ -3,3 +3,4 @@ This repository contains explanations of common algorithms with examples in C. T
 
 1. [Binary Search](./binary_search.md)
 2. [Selection Sort](./selection_sort.md)
+3. [Quicksort](./quicksort.md)
