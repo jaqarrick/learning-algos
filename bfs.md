@@ -69,17 +69,17 @@ I don't want to bother Bob with multiple texts if none of my other friends have 
 "Bob, do you have an amp? If not, do any of your friends have one?"
 ["Alice", "Jake", "Greg", "Kate"]
 ```
-If Bob _has_ an amp, then I end the search early. But he doesn't, so I keep the search going. Alice has a couple musician friends Paula and Oman. So I add them as well. 
+If Bob _has_ an amp, then I end the search early. But he doesn't, so I keep the search going. Alice has a couple musician friends Paula and Omar. So I add them as well. 
 ```
-["Alice", "Jake", "Greg", "Kate", "Paula", "Oman"]
+["Alice", "Jake", "Greg", "Kate", "Paula", "Omar"]
 ```
-What if I haven't had any luck with any of my friend's friends? We'll ask their friends. Oman has a couple music friends Jordan and Bob. 
+What if I haven't had any luck with any of my friend's friends? We'll ask their friends. Omar has a couple music friends Jordan and Bob. 
 ```
-["Oman", "Bob", "Jordan"]
+["Omar", "Bob", "Jordan"]
 ```
 But wait! I already asked Bob and he doesn't have an amp. To prevent this redundancy I'll keep track of the friends I've already asked and won't add them to my list. 
 
-Ok, turns out Jordan has an amp! I stop my search here. The shortest path between my and a sweet vintage Fender Twin Reverb is `Alice -> Oman -> Jordan`. This is kind of a pain – I've got to get Jordan's contact info from Alice, she has to get it from Oman. But turns out Jordan is pretty chill and lets me borrow the amp. 
+Ok, turns out Jordan has an amp! I stop my search here. The shortest path between my and a sweet vintage Fender Twin Reverb is `Alice -> Omar -> Jordan`. This is kind of a pain – I've got to get Jordan's contact info from Alice, she has to get it from Omar. But turns out Jordan is pretty chill and lets me borrow the amp. 
 
 #### Implementation in C
 We can express BFS more formally:
@@ -202,6 +202,9 @@ Because we have tracked the path of each node, we can iterate through the `paren
 Given the destination node `3`, we find it's parent, `2`, which gives us its parent `1`, finally reaching back to `0`. An analogy to understand this approach of path reconstruction is breadcrumbs. For each node we visited, we left a trail back to the start.
 
 Full implementation [here](https://github.com/jaqarrick/learning-algos/blob/main/examples/bfs_graph.c).
+
+### Run time
+BFS has the time complexity of `O(V + E)` where `V` represents the total amount of vertices or nodes and `E` represents the number of edges. 
 
 ### Conclusion
 BFS works best on _unweighted_ graphs, which we described above. In unweighted graphs, each edge is treated equally. Weighted graphs add extra qualifiers to edges. For example, a weighted graph describing transportation between cities might introduce factors like current traffic on routes, or total time it may take given transportation methods. In my music example above, I might factor in how far a friend lives from me, or even how well I know them. Algorithms that analyze directed and weighted graphs will need to be explored in another post. 
