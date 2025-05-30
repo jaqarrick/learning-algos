@@ -6,3 +6,4 @@ This repository contains explanations of common algorithms with examples in C. T
 3. [Quicksort](./quicksort.md)
 4. [Hash tables](./hash_table.md)
 5. [Breadth First Search](./bfs.md)
+6. [Dijkstra's Algorithm](./dijkstra.md)
